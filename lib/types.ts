@@ -1,7 +1,5 @@
-import type { Schema } from "@/amplify/data/resource";
-
-// Re-export the Schema type for convenience
-export type { Schema };
+// Schema type placeholder - actual schema is in amplify/data/resource.ts
+export type Schema = any;
 
 // ---------------------------------------------------------------------------
 // Enums (mirroring GraphQL schema enums)
