@@ -1,26 +1,230 @@
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&family=Fragment+Mono:ital@0;1&display=swap");
+
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Tailwind v4 Theme Tokens ─────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors: Primary */
+  --color-primary-50: #f0f9f5;
+  --color-primary-100: #d5f0e3;
+  --color-primary-200: #95c5b3;
+  --color-primary-300: #61a88e;
+  --color-primary-400: #355c4e;
+  --color-primary-500: #29473c;
+  --color-primary-600: #1e352d;
+  --color-primary-700: #16271f;
+  --color-primary-800: #0e1a14;
+  --color-primary-900: #070d0a;
+
+  /* Colors: Purple */
+  --color-purple-50: #f3eefb;
+  --color-purple-100: #e4d8f5;
+  --color-purple-200: #c9b1eb;
+  --color-purple-300: #a87de0;
+  --color-purple-400: #8250d7;
+  --color-purple-500: #37225a;
+  --color-purple-600: #2a1a45;
+  --color-purple-700: #1d1230;
+  --color-purple-800: #100a1b;
+  --color-purple-900: #080510;
+
+  /* Colors: Accent */
+  --color-accent: #e5951a;
+  --color-accent-light: #f0b85a;
+  --color-accent-dark: #c47a0e;
+
+  /* Colors: Surface */
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8faf9;
+  --color-surface-tertiary: #f0f4f2;
+  --color-surface-dark: #0a1612;
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-mono: "Fragment Mono", monospace;
+
+  /* Border Radius */
+  --radius-card: 10px;
+
+  /* Spacing */
+  --spacing-section: 80px;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.6s ease-out forwards;
+  --animate-slide-in: slide-in 0.6s ease-out forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Keyframes ────────────────────────────────────────────────────────────── */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ─── CSS Custom Properties ────────────────────────────────────────────────── */
+:root {
+  /* Primary palette */
+  --fonzi-primary-50: #f0f9f5;
+  --fonzi-primary-100: #d5f0e3;
+  --fonzi-primary-200: #95c5b3;
+  --fonzi-primary-300: #61a88e;
+  --fonzi-primary-400: #355c4e;
+  --fonzi-primary-500: #29473c;
+  --fonzi-primary-600: #1e352d;
+  --fonzi-primary-700: #16271f;
+  --fonzi-primary-800: #0e1a14;
+  --fonzi-primary-900: #070d0a;
+
+  /* Purple palette */
+  --fonzi-purple-50: #f3eefb;
+  --fonzi-purple-100: #e4d8f5;
+  --fonzi-purple-200: #c9b1eb;
+  --fonzi-purple-300: #a87de0;
+  --fonzi-purple-400: #8250d7;
+  --fonzi-purple-500: #37225a;
+  --fonzi-purple-600: #2a1a45;
+  --fonzi-purple-700: #1d1230;
+  --fonzi-purple-800: #100a1b;
+  --fonzi-purple-900: #080510;
+
+  /* Accent */
+  --fonzi-accent: #e5951a;
+  --fonzi-accent-light: #f0b85a;
+  --fonzi-accent-dark: #c47a0e;
+
+  /* Surfaces */
+  --fonzi-surface: #ffffff;
+  --fonzi-surface-secondary: #f8faf9;
+  --fonzi-surface-tertiary: #f0f4f2;
+  --fonzi-surface-dark: #0a1612;
+
+  /* Foreground */
+  --fonzi-foreground: #0e1a14;
+  --fonzi-foreground-muted: #355c4e;
+}
+
+/* ─── Base Styles ──────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--fonzi-foreground);
+  background-color: var(--fonzi-surface);
+}
+
+/* ─── Selection ────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: #d5f0e3;
+  color: #0e1a14;
+}
+
+::-moz-selection {
+  background-color: #d5f0e3;
+  color: #0e1a14;
+}
+
+/* ─── Focus Visible ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #61a88e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #95c5b3 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #95c5b3;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #61a88e;
+}
+
+/* ─── Utility: Gradient Primary ────────────────────────────────────────────── */
+.gradient-primary {
+  background: linear-gradient(135deg, #29473c 0%, #61a88e 50%, #95c5b3 100%);
+}
+
+/* ─── Utility: Gradient Hero ───────────────────────────────────────────────── */
+.gradient-hero {
+  background: linear-gradient(180deg, #0e1a14 0%, #16271f 40%, #0a1612 100%);
+}
+
+/* ─── Utility: Text Gradient ───────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #61a88e 0%, #95c5b3 30%, #8250d7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Utility: Glass Card ──────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+/* ─── Utility: Animations ──────────────────────────────────────────────────── */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+/* ─── Logo Scroll Animation ────────────────────────────────────────────────── */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
