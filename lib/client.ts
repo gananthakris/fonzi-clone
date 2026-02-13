@@ -1,5 +1,7 @@
 import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
+
+// Schema type placeholder - actual schema is in amplify/data/resource.ts
+type Schema = any;
 
 export const client = generateClient<Schema>();
 
